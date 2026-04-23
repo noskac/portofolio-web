@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Proyek | Portofolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="detail-page">
+    <nav class="navbar">
+        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Portofolio <span>Andaru</span></a></div>
+        <a href="projects.html" class="btn-back">← Kembali ke Proyek</a>
+    </nav>
+
+    <div id="project-container" class="container" style="margin-top: 100px; padding: 0 10%;">
+        <h1 id="p-title">Memuat...</h1>
+        <div class="project-header">
+            <span id="p-category" class="badge">Category</span>
+        </div>
+        <img id="p-image" src="" alt="" style="width:100%; border-radius: 15px; margin: 20px 0;">
+        
+        <div class="project-info">
+            <h3>Teknologi yang Digunakan:</h3>
+            <div id="p-tech" class="tech-tags"></div>
+            
+            <h3>Deskripsi Lengkap:</h3>
+            <p id="p-story"></p>
+            
+            <a id="p-github" href="#" target="_blank" class="btn btn-primary" style="margin-top: 20px;">Lihat di GitHub</a>
+        </div>
+    </div>
+
+    <script src="projects-data.js"></script>
+    <script>
+        // Logika untuk mengambil ID dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        // Mencari data proyek yang cocok
+        const project = projectsData.find(p => p.id === projectId);
+
+        if (project) {
+            document.getElementById('p-title').innerText = project.title;
+            document.getElementById('p-category').innerText = project.category;
+            document.getElementById('p-image').src = project.image;
+            document.getElementById('p-story').innerText = project.fullStory;
+            document.getElementById('p-github').href = project.githubLink;
+
+            // Menampilkan tech stack
+            const techContainer = document.getElementById('p-tech');
+            project.techStack.forEach(tech => {
+                const span = document.createElement('span');
+                span.className = 'tech-badge';
+                span.innerText = tech;
+                techContainer.appendChild(span);
+            });
+        } else {
+            document.getElementById('project-container').innerHTML = "<h1>Proyek tidak ditemukan</h1>";
+        }
+    </script>
+</body>
+</html>
