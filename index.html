@@ -47,7 +47,7 @@
     <div class="container about-container">
         <div class="about-image">
             <div class="profile-frame">
-                <img src="asssets/Profil_Blue_1_Square.png" alt="Andaru Wicaksono">
+                <img src="assets/Profil_Blue_1_Square.png" alt="Andaru Wicaksono">
             </div>
         </div>
         <div class="about-text">
@@ -137,9 +137,17 @@
         </div>
     </section>
     
-    <section id="projects" style="height: 100vh; padding: 100px 10%; background: var(--bg-secondary);">
-        <h2>Proyek Unggulan</h2>
-        <a href="projects.html" class="btn btn-primary">Lihat Semua Proyek ➔</a>
+    <section id="projects" class="projects-section" style="padding: 100px 10%; background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title text-center">Proyek <span class="highlight">Unggulan</span></h2>
+            <p class="text-center" style="margin-bottom: 40px;">Beberapa karya terbaik yang pernah saya kembangkan.</p>
+            
+            <div id="featured-projects" class="projects-grid"></div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="projects.html" class="btn btn-primary">Lihat Semua Proyek ➔</a>
+            </div>
+        </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

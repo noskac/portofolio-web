@@ -1,4 +1,5 @@
 const experienceData = [
+    
     {
         title: "Programmer • MAVIS EVO",
         date: "November 2024 - Sekarang",
@@ -19,4 +20,5 @@ const experienceData = [
         date: "2021 - 2022",
         description: "Berperan aktif dalam perencanaan dan eksekusi program kerja. Mengembangkan keterampilan kepemimpinan, kerja sama tim, dan manajemen acara melalui kegiatan kepramukaan."
     }
+    
 ];

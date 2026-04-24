@@ -12,41 +12,66 @@
         <a href="projects.html" class="btn-back">← Kembali ke Proyek</a>
     </nav>
 
-    <div id="project-container" class="container" style="margin-top: 100px; padding: 0 10%;">
-        <h1 id="p-title">Memuat...</h1>
-        <div class="project-header">
-            <span id="p-category" class="badge">Category</span>
+    <div id="project-container" class="container" style="margin-top: 100px; padding: 0 10% 50px;">
+        <h1 id="p-title" style="margin-bottom: 10px;">Memuat...</h1>
+        <span id="p-category" class="badge">Category</span>
+
+        <div class="slider-container">
+            <div id="p-slider" class="slider-wrapper">
+                </div>
+            <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+            <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
         </div>
-        <img id="p-image" src="" alt="" style="width:100%; border-radius: 15px; margin: 20px 0;">
         
         <div class="project-info">
             <h3>Teknologi yang Digunakan:</h3>
             <div id="p-tech" class="tech-tags"></div>
             
-            <h3>Deskripsi Lengkap:</h3>
-            <p id="p-story"></p>
+            <h3>Deskripsi Proyek:</h3>
+            <p id="p-story" style="white-space: pre-line; margin-bottom: 30px;"></p>
             
-            <a id="p-github" href="#" target="_blank" class="btn btn-primary" style="margin-top: 20px;">Lihat di GitHub</a>
+            <div class="direct-links" style="padding: 20px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h3 style="margin-bottom: 15px;">Tautan Langsung:</h3>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a id="p-github" href="#" target="_blank" class="btn btn-primary">Lihat di GitHub</a>
+                    <a id="p-tinkercad" href="#" target="_blank" class="btn btn-secondary" style="border-color: #f59e0b; color: #b45309;">Logic Wiring (Tinkercad)</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="projects-data.js"></script>
     <script>
-        // Logika untuk mengambil ID dari URL
         const urlParams = new URLSearchParams(window.location.search);
         const projectId = urlParams.get('id');
-
-        // Mencari data proyek yang cocok
         const project = projectsData.find(p => p.id === projectId);
+
+        let currentSlide = 0;
 
         if (project) {
             document.getElementById('p-title').innerText = project.title;
             document.getElementById('p-category').innerText = project.category;
-            document.getElementById('p-image').src = project.image;
             document.getElementById('p-story').innerText = project.fullStory;
             document.getElementById('p-github').href = project.githubLink;
+            
+            // Link Tinkercad (Sembunyikan jika tidak ada)
+            const tcLink = document.getElementById('p-tinkercad');
+            if(project.tinkercadLink) {
+                tcLink.href = project.tinkercadLink;
+            } else {
+                tcLink.style.display = 'none';
+            }
 
-            // Menampilkan tech stack
+            // Render Slider
+            const sliderWrapper = document.getElementById('p-slider');
+            project.images.forEach((imgSrc, index) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.className = index === 0 ? 'active' : '';
+                sliderWrapper.appendChild(img);
+            });
+
+            // Render Tech Tags
             const techContainer = document.getElementById('p-tech');
             project.techStack.forEach(tech => {
                 const span = document.createElement('span');
@@ -54,8 +79,15 @@
                 span.innerText = tech;
                 techContainer.appendChild(span);
             });
-        } else {
-            document.getElementById('project-container').innerHTML = "<h1>Proyek tidak ditemukan</h1>";
+        }
+
+        function changeSlide(direction) {
+            const images = document.querySelectorAll('#p-slider img');
+            images[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + direction + images.length) % images.length;
+            
+            images[currentSlide].classList.add('active');
         }
     </script>
 </body>

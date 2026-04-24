@@ -83,3 +83,53 @@ experienceData.forEach(item => {
     `;
     timeline.appendChild(timelineItem);
 });
+
+// --- Render 3 Proyek Unggulan di Halaman Utama (index.html) ---
+const featuredGrid = document.getElementById('featured-projects');
+
+if (featuredGrid) {
+    // Ambil maksimal 3 proyek pertama saja
+    const featuredProjects = projectsData.slice(0, 3);
+    
+    featuredProjects.forEach(project => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        
+        // Memastikan kompatibilitas jika data memakai 'images' (array) atau 'image' (string tunggal)
+        const projectImages = project.images ? project.images : [project.image];
+        
+        // Buat tag <img> untuk setiap foto di dalam data
+        let imagesHTML = '';
+        projectImages.forEach((img, index) => {
+            // Foto pertama diberi class 'active' agar langsung terlihat
+            imagesHTML += `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="${project.title}">`;
+        });
+
+        card.innerHTML = `
+            <div class="card-image-container" id="slider-${project.id}">
+                <span class="card-badge">${project.category}</span>
+                ${imagesHTML}
+            </div>
+            <div class="card-content">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <a href="project-detail.html?id=${project.id}" class="btn-detail">Lihat Detail ➔</a>
+            </div>
+        `;
+        featuredGrid.appendChild(card);
+
+        // --- Logika Auto-Slide (Hanya berjalan jika foto lebih dari 1) ---
+        if (projectImages.length > 1) {
+            let currentImgIndex = 0;
+            const sliderContainer = card.querySelector(`#slider-${project.id}`);
+            const images = sliderContainer.querySelectorAll('img');
+            
+            // Set interval setiap 3 detik (3000 milidetik)
+            setInterval(() => {
+                images[currentImgIndex].classList.remove('active');
+                currentImgIndex = (currentImgIndex + 1) % images.length;
+                images[currentImgIndex].classList.add('active');
+            }, 3000); 
+        }
+    });
+}

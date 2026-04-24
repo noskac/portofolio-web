@@ -23,18 +23,25 @@
     </section>
 
     <script src="projects-data.js"></script>
+    <script src="projects-data.js"></script>
     <script>
         const grid = document.getElementById('projects-grid');
 
-        // Mengambil data dari projectsData dan membuat elemen HTML untuk setiap proyek
+        // Render SEMUA proyek
         projectsData.forEach(project => {
             const card = document.createElement('div');
             card.className = 'project-card';
             
+            const projectImages = project.images ? project.images : [project.image];
+            let imagesHTML = '';
+            projectImages.forEach((img, index) => {
+                imagesHTML += `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="${project.title}">`;
+            });
+
             card.innerHTML = `
-                <div class="card-image-container">
+                <div class="card-image-container" id="all-slider-${project.id}">
                     <span class="card-badge">${project.category}</span>
-                    <img src="${project.image}" alt="${project.title}">
+                    ${imagesHTML}
                 </div>
                 <div class="card-content">
                     <h3>${project.title}</h3>
@@ -43,6 +50,18 @@
                 </div>
             `;
             grid.appendChild(card);
+
+            if (projectImages.length > 1) {
+                let currentImgIndex = 0;
+                const sliderContainer = card.querySelector(`#all-slider-${project.id}`);
+                const images = sliderContainer.querySelectorAll('img');
+                
+                setInterval(() => {
+                    images[currentImgIndex].classList.remove('active');
+                    currentImgIndex = (currentImgIndex + 1) % images.length;
+                    images[currentImgIndex].classList.add('active');
+                }, 3000); 
+            }
         });
     </script>
 </body>

@@ -475,3 +475,86 @@ body {
     color: var(--text-muted);
     line-height: 1.6;
 }
+
+/* --- Pengaturan Gambar Kartu (Auto Slide) --- */
+.card-image-container {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #0f172a; /* Warna gelap jika foto belum meload */
+}
+
+.card-image-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Transisi memudar yang halus */
+    top: 0;
+    left: 0;
+}
+
+/* --- Slider Styles --- */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background: #000;
+    margin: 30px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-wrapper img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Agar gambar tidak terpotong */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slider-wrapper img.active {
+    opacity: 1;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: var(--primary-color);
+}
+
+.prev { left: 10px; border-radius: 5px; }
+.next { right: 10px; border-radius: 5px; }
+
+@media (max-width: 768px) {
+    .slider-container { height: 300px; }
+}
+
+/* Gambar yang sedang aktif akan muncul */
+.card-image-container img.active {
+    opacity: 1;
+}
+
+.project-card:hover .card-image-container img.active {
+    transform: scale(1.05); /* Efek zoom tipis saat dihover */
+}
