@@ -11,7 +11,7 @@ const projectsData = [
             "assets/Project_1_tampilan Dashboard.jpeg",
             "assets/Project_1_Prototipe.jpeg"
         ],
-        description: "Sistem simulasi mitigasi kebakaran aktif berbasis IoT menggunakan platform Blynk untuk monitoring dan kontrol jarak jauh.",
+        description: "Sistem simulasi mitigasi kebakaran aktif berbasis IoT menggunakan platform Blynk untuk monitoring.",
         techStack: ["ESP32", "Blynk IoT", "C++", "Tinkercad", "Flame Sensor", "VS Code", "Arduino IDE", "PlatformIO"],
         // Space untuk deskripsi lengkap
         fullStory: "Proyek ini adalah sistem peringatan dini dan mitigasi kebakaran otomatis berbasis Internet of Things (IoT) yang dikembangkan menggunakan mikrokontroler ESP32 dan lingkungan pengembangan PlatformIO. Sistem ini tidak hanya memantau titik api secara real-time, tetapi juga mampu merespons ancaman secara aktif. Ketika anomali terdeteksi, sistem akan langsung memicu relay untuk menyalakan pompa air mini (water pump) sebagai tindakan pemadaman awal.Simulasi wiring dilakukan secara mendalam menggunakan Tinkercad untuk memastikan logika hardware bekerja 100% sebelum perakitan fisik. \n\nSecara bersamaan, sistem akan mengirimkan push notification darurat ke smartphone pengguna melalui cloud Blynk IoT. Proyek ini mendemonstrasikan kapabilitas integrasi end-to-end: mulai dari pengolahan sinyal trigger, kontrol aktuator fisik untuk mitigasi, hingga pengiriman log event ke sistem cloud. ",
