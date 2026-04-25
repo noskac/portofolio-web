@@ -138,3 +138,20 @@ if (featuredGrid) {
         }
     });
 }
+
+// --- Logika Modal Transkrip ---
+function openTranscript() {
+    document.getElementById('transcriptModal').style.display = 'block';
+}
+
+function closeTranscript() {
+    document.getElementById('transcriptModal').style.display = 'none';
+}
+
+// Tutup modal jika pengguna mengklik area gelap di luar gambar
+window.onclick = function(event) {
+    const modal = document.getElementById('transcriptModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

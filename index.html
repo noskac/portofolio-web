@@ -60,11 +60,13 @@
             <p>
                 Selain itu saya juga senang mengeksplorasi pengembangan aplikasi android dan juga web. Saya percaya bahwa teknologi haruslah solutif dan inovatif.
             </p>
-            <div class="about-cta">
-                <a href="#" class="btn btn-primary">Download CV</a>
-                <div class="social-links">
+            <div class="about-cta" style="gap: 15px; display: flex; flex-wrap: wrap; align-items: center;">
+                <a href="assets/CV_Andaru.pdf" target="_blank" class="btn btn-primary">Download CV</a>
+                <button onclick="openTranscript()" class="btn btn-secondary">Lihat Transkrip (IPS)</button>
+                
+                <div class="social-links" style="margin-left: auto;">
                     <a href="https://github.com/noskac" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/andaru-wicaksono-b9b488317" target="_blank">LinkedIn</a>
+                    <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -149,6 +151,15 @@
             </div>
         </div>
     </section>
+
+    <div id="transcriptModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeTranscript()">&times;</span>
+            <h2 style="margin-bottom: 20px; text-align: center;">Transkrip Nilai (Semester 1 - 5)</h2>
+            <img src="assets/Transkip_1.png" alt="Transkrip Halaman 1" style="width: 100%; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <img src="assets/Transkip_2.png" alt="Transkrip Halaman 2" style="width: 100%; border-radius: 8px; border: 1px solid #e2e8f0;">
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="projects-data.js"></script>
