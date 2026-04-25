@@ -84,24 +84,25 @@ experienceData.forEach(item => {
     timeline.appendChild(timelineItem);
 });
 
-// --- Render 3 Proyek Unggulan di Halaman Utama (index.html) ---
+// --- Render Proyek di Halaman Utama (index.html) ---
 const featuredGrid = document.getElementById('featured-projects');
 
 if (featuredGrid) {
-    // Ambil maksimal 3 proyek pertama saja
-    const featuredProjects = projectsData.slice(0, 3);
-    
-    featuredProjects.forEach(project => {
+    // Menampilkan semua proyek yang ada di projects-data.js
+    // Jika ingin membatasi hanya 3, gunakan: projectsData.slice(0, 3).forEach...
+    projectsData.slice(0, 3).forEach(project => {
         const card = document.createElement('div');
         card.className = 'project-card';
         
-        // Memastikan kompatibilitas jika data memakai 'images' (array) atau 'image' (string tunggal)
+        // Logika Pemotongan Deskripsi (Truncate)
+        // Jika karakter lebih dari 120, potong dan tambah "..."
+        const shortDescription = project.description.length > 120 
+            ? project.description.substring(0, 120) + "..." 
+            : project.description;
+
         const projectImages = project.images ? project.images : [project.image];
-        
-        // Buat tag <img> untuk setiap foto di dalam data
         let imagesHTML = '';
         projectImages.forEach((img, index) => {
-            // Foto pertama diberi class 'active' agar langsung terlihat
             imagesHTML += `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="${project.title}">`;
         });
 
@@ -112,19 +113,18 @@ if (featuredGrid) {
             </div>
             <div class="card-content">
                 <h3>${project.title}</h3>
-                <p>${project.description}</p>
+                <p>${shortDescription}</p>
                 <a href="project-detail.html?id=${project.id}" class="btn-detail">Lihat Detail ➔</a>
             </div>
         `;
         featuredGrid.appendChild(card);
 
-        // --- Logika Auto-Slide (Hanya berjalan jika foto lebih dari 1) ---
+        // --- Logika Auto-Slide per Kartu ---
         if (projectImages.length > 1) {
             let currentImgIndex = 0;
             const sliderContainer = card.querySelector(`#slider-${project.id}`);
             const images = sliderContainer.querySelectorAll('img');
             
-            // Set interval setiap 3 detik (3000 milidetik)
             setInterval(() => {
                 images[currentImgIndex].classList.remove('active');
                 currentImgIndex = (currentImgIndex + 1) % images.length;

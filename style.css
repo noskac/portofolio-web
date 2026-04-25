@@ -237,6 +237,8 @@ body {
     margin-bottom: 20px;
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Membatasi deskripsi maksimal 3 baris */
+    line-height: 1.5;
+    min-height: 4.5em; /* 3 baris x 1.5 line-height */
     line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;

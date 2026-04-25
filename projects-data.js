@@ -20,6 +20,27 @@ const projectsData = [
         tinkercadLink: "https://www.tinkercad.com/things/lP382Drvs9P-hardware-logic-wiring-simulation-fire-mitigation-system?sharecode=NLZpJhsPnhXzdHze22W2s33714ysGu2ZiEQD9lxzCPg"
     },
     {
+        id: "iot-soil-moisture",
+        title: "IoT Soil Moisture & Auto Watering Simulator",
+        category: "IoT & Smart Agriculture",
+        images: [
+            "assets/Project_2_AndroidDashboard.png",
+            "assets/Project_2_Program.png",
+            "assets/Project_2_Prototipe.png",
+            "assets/Project_2_Rangkaian.jpeg"
+        ],
+        // Deskripsi singkat untuk kartu di halaman utama
+        description: "Sistem IoT berbasis ESP32 untuk otomasi pemantauan kelembaban tanah dan penyiraman mandiri menggunakan sensor kapasitif dan pompa air...",
+        techStack: ["ESP32", "C++", "WebSocket", "OLED Display", "Soil Moisture Sensor"],
+        // Deskripsi lengkap menggunakan backtick (`) agar enter/paragraf terbaca
+        fullStory: `Sistem Internet of Things (IoT) yang dikembangkan untuk mengotomatisasi pemantauan kelembaban tanah dan perawatan tanaman. Dibangun dengan mikrokontroler ESP32, sistem bertindak dengan membaca tingkat kelembaban tanah secara real-time. Data fisik dari lingkungan tersebut kemudian dikonversi menjadi persentase visual yang dapat dipantau secara langsung melalui layar OLED di lokasi, maupun ditransmisikan ke antarmuka jarak jauh. Proyek ini merupakan implementasi praktis dari konsep pertanian presisi (precision agriculture) untuk mencegah kegagalan perawatan tanaman.
+
+Ketika sensor kapasitif mendeteksi bahwa tanah berada di bawah ambang batas kelembaban yang ideal, sistem akan secara otomatis mengaktifkan aktuator berupa pompa air. Proses penyiraman ini berjalan secara terukur dan mandiri tanpa memerlukan intervensi manual dari pengguna, memastikan tanaman selalu mendapatkan hidrasi yang tepat pada waktu yang tepat.
+
+Dari sisi rekayasa perangkat lunak, proyek ini menonjolkan penerapan arsitektur kode yang efisien dan responsif. Alih-alih menggunakan metode delay konvensional yang dapat menghentikan seluruh proses operasional mikrokontroler, saya mengimplementasikan sistem non-blocking timer berbasis fungsi komputasi waktu. Pendekatan teknis ini sangat krusial karena memungkinkan perangkat untuk melakukan multitasking: mengontrol durasi nyala pompa air secara akurat, memperbarui tampilan antarmuka visual, sekaligus menjaga kelancaran aliran data telemetri ke server melalui protokol WebSocket tanpa ada koneksi yang terputus.`,
+        githubLink: "https://github.com/noskac/IoT-Soil-Moisture-Auto-Watering-Simulator"
+    },
+    {
         id: "yolo-road",
         title: "Sistem Deteksi Kerusakan Jalan",
         category: "Machine Learning",
@@ -48,6 +69,6 @@ const projectsData = [
         techStack: ["Arduino", "Teensy 4.1", "Python", "ROS"],
         githubLink: "https://github.com/andaru/rov-project",
         fullStory: "Bertanggung jawab dalam memprogram logika kontrol motor dan stabilisasi robot di dalam air..."
-    }
+    },
     
 ];
