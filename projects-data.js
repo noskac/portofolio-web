@@ -1,5 +1,45 @@
 const projectsData = [
     {
+        id: "mavisevo-ros2-system",
+        title: "MavisEvo ROS 2 AI Vision Workspace",
+        category: "Robotics & AI",
+        status: "On-going",
+        images: [
+            "assets/Project_4_Program1.png",
+            "assets/Project_4_Prototipe1.png",
+            "assets/Project_4_testing1.png",
+            "assets/Project_4_Testing2.png",
+            "assets/Project_4_Testing3.png"
+        ],
+        description: "Pusat saraf kendali UAV berbasis ROS 2 Jazzy. Sedang dalam tahap integrasi visi komputer YOLOv11 dengan akselerasi TensorRT pada GPU RTX 2050 (On-going)...",
+        techStack: ["ROS 2", "Python", "YOLOv11", "TensorRT", "NVIDIA RTX 2050"],
+        fullStory: `MavisEvo ROS 2 Workspace merupakan pusat saraf kendali cerdas yang mengintegrasikan kecerdasan buatan dengan sistem robotika modular berstandar industri. Saat ini, arsitektur workspace ini masih dalam fase pengembangan aktif (On-going), dengan fokus pada pengujian latensi aliran video dan stabilisasi sistem sebelum uji coba perairan secara penuh.
+
+Memanfaatkan middleware ROS 2 Jazzy Jalisco, arsitektur ini menjalankan pemrosesan visi komputer secara real-time menggunakan algoritma YOLOv11 yang diakselerasi oleh NVIDIA TensorRT pada unit pemrosesan grafis RTX 2050. Sistem ini dirancang untuk menangani deteksi objek bawah air dengan latensi minimal melalui konversi model ke format FP16, yang kemudian dipancarkan melalui saluran telemetri terpusat. 
+
+Selain aspek persepsi, workspace ini juga mencakup pengembangan Mission Control Dashboard berbasis Python yang memungkinkan operator memantau aliran video hasil olahan AI dan status sistem secara komprehensif, memastikan koordinasi yang mulus antara logika otonom dan kendali manual.`,
+        githubLink: "https://github.com/noskac/MavisEvo-System"
+    },
+    {
+        id: "mavisevo-mcu-firmware",
+        title: "MavisEvo-MCU Universal Firmware",
+        category: "Embedded System",
+        status: "On-going",
+        images: [
+            "assets/Project_5_Porgram1.png",
+            "assets/Project_5_Program2.png",
+            "assets/Project_5_Prototipe1.png"
+        ],
+        description: "Firmware universal C++ untuk kendali aktuator UAV. Masih dalam tahap optimasi hardware timer pada arsitektur ESP32 dan Teensy 4.1 (On-going)...",
+        techStack: ["C++", "PlatformIO", "ESP32", "Teensy 4.1", "PWM Control"],
+        fullStory: `MavisEvo-MCU adalah firmware universal berbasis C++ yang dirancang khusus untuk memberikan kendali aktuator dengan presisi tinggi pada perangkat keras UAV. Proyek firmware ini berstatus On-going, dengan pengembangan terkini berfokus pada pengujian stress-test parsing data serial dan kalibrasi output PWM agar sinkron sempurna dengan perangkat keras mekanis robot.
+
+Dikembangkan menggunakan ekosistem PlatformIO, basis kode ini menerapkan prinsip modularitas melalui preprocessor directives, sehingga memiliki fleksibilitas tinggi untuk diunggah ke mikrokontroler ESP32 maupun Teensy 4.1 tanpa modifikasi manual pada struktur kodenya. 
+
+Perangkat lunak ini bertugas sebagai jembatan komunikasi yang mengolah paket data serial berkecepatan tinggi dari sistem utama menjadi sinyal PWM (Pulse Width Modulation) yang stabil untuk menggerakkan rangkaian thruster. Dengan optimasi pada manajemen hardware timer dan protokol parsing data yang efisien, firmware ini menjamin respon pergerakan robot yang tangkas serta keandalan sistem dalam mempertahankan stabilitas manuver di bawah air.`,
+        githubLink: "https://github.com/noskac/MavisEvo-MCU"
+    },
+    {
         id: "active-fire-mitigation",
         title: "Active Fire Mitigation Simulation System via Blynk IoT",
         category: "IoT",
@@ -59,36 +99,6 @@ Sistem dirancang untuk menjembatani transmisi data real-time antara perangkat ke
 
 Pada sisi perangkat lunak, ESP32 bertugas memparsing data menjadi sinyal PWM untuk driver motor L298N. Meskipun masih dalam tahap pengembangan, algoritma differential steering telah dirancang di dalam kode C++ untuk memastikan manuver yang halus seperti akselerasi bertahap dan navigasi dinamis. Proyek ini mendemonstrasikan integrasi awal antara desain sirkuit elektronika aktuator dan pengembangan aplikasi mobile.`,
         githubLink: "https://github.com/noskac/ESP32-Bluetooth-RC-Robot"
-    },
-    {
-        id: "yolo-road",
-        title: "Sistem Deteksi Kerusakan Jalan",
-        category: "Machine Learning",
-        image: "https://via.placeholder.com/600x400", // Ganti dengan path foto aslimu
-        description: "Deteksi dini lubang dan gelombang jalan menggunakan algoritma YOLO (You Only Look Once) versi 8 untuk meningkatkan keselamatan berkendara.",
-        techStack: ["Python", "YOLOv8", "PyTorch", "OpenCV"],
-        githubLink: "https://github.com/andaru/yolo-road-damage",
-        fullStory: "Proyek ini dikembangkan sebagai bagian dari proposal PKM... (tulis detail lengkap di sini)"
-    },
-    {
-        id: "biogas-iot",
-        title: "Monitoring Reaktor Biogas IoT",
-        category: "IoT & Embedded System",
-        image: "https://via.placeholder.com/600x400",
-        description: "Sistem pemantauan parameter reaktor biogas secara real-time menggunakan ESP32, sensor pH, dan suhu.",
-        techStack: ["ESP32", "C++", "Firebase", "Nextion HMI"],
-        githubLink: "https://github.com/andaru/biogas-iot",
-        fullStory: "Menggunakan ESP32 untuk mengirimkan data sensor ke cloud sehingga kondisi reaktor bisa dipantau lewat aplikasi..."
-    },
-    {
-        id: "underwater-rov",
-        title: "Programming Robot Bawah Air (ROV)",
-        category: "Robotics",
-        image: "https://via.placeholder.com/600x400",
-        description: "Pengembangan sistem kontrol dan navigasi untuk robot bawah air yang bertanggung jawab dalam eksplorasi bawah laut.",
-        techStack: ["Arduino", "Teensy 4.1", "Python", "ROS"],
-        githubLink: "https://github.com/andaru/rov-project",
-        fullStory: "Bertanggung jawab dalam memprogram logika kontrol motor dan stabilisasi robot di dalam air..."
     },
     
 ];
