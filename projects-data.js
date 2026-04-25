@@ -13,7 +13,7 @@ const projectsData = [
         ],
         description: "Pusat saraf kendali UAV berbasis ROS 2 Jazzy. Sedang dalam tahap integrasi visi komputer YOLOv11 dengan akselerasi TensorRT pada GPU RTX 2050 (On-going)...",
         techStack: ["ROS 2", "Python", "YOLOv11", "TensorRT", "NVIDIA RTX 2050"],
-        fullStory: `MavisEvo ROS 2 Workspace merupakan pusat saraf kendali cerdas yang mengintegrasikan kecerdasan buatan dengan sistem robotika modular berstandar industri. Saat ini, arsitektur workspace ini masih dalam fase pengembangan aktif (On-going), dengan fokus pada pengujian latensi aliran video dan stabilisasi sistem sebelum uji coba perairan secara penuh.
+        fullStory: `MavisEvo ROS 2 Workspace merupakan pusat saraf kendali cerdas yang mengintegrasikan kecerdasan buatan dengan sistem robotika modular. Saat ini, arsitektur workspace ini masih dalam fase pengembangan aktif (On-going), dengan fokus pada pengujian latensi aliran video dan stabilisasi sistem sebelum uji coba perairan secara penuh.
 
 Memanfaatkan middleware ROS 2 Jazzy Jalisco, arsitektur ini menjalankan pemrosesan visi komputer secara real-time menggunakan algoritma YOLOv11 yang diakselerasi oleh NVIDIA TensorRT pada unit pemrosesan grafis RTX 2050. Sistem ini dirancang untuk menangani deteksi objek bawah air dengan latensi minimal melalui konversi model ke format FP16, yang kemudian dipancarkan melalui saluran telemetri terpusat. 
 
@@ -32,9 +32,9 @@ Selain aspek persepsi, workspace ini juga mencakup pengembangan Mission Control 
         ],
         description: "Firmware universal C++ untuk kendali aktuator UAV. Masih dalam tahap optimasi hardware timer pada arsitektur ESP32 dan Teensy 4.1 (On-going)...",
         techStack: ["C++", "PlatformIO", "ESP32", "Teensy 4.1", "PWM Control"],
-        fullStory: `MavisEvo-MCU adalah firmware universal berbasis C++ yang dirancang khusus untuk memberikan kendali aktuator dengan presisi tinggi pada perangkat keras UAV. Proyek firmware ini berstatus On-going, dengan pengembangan terkini berfokus pada pengujian stress-test parsing data serial dan kalibrasi output PWM agar sinkron sempurna dengan perangkat keras mekanis robot.
+        fullStory: `MavisEvo-MCU adalah firmware universal berbasis C++ yang dirancang khusus untuk memberikan kendali aktuator dengan presisi pada perangkat keras UAV. Proyek firmware ini berstatus On-going, dengan pengembangan terkini berfokus pada pengujian data serial dan kalibrasi output PWM agar sinkron sempurna dengan perangkat keras mekanis robot.
 
-Dikembangkan menggunakan ekosistem PlatformIO, basis kode ini menerapkan prinsip modularitas melalui preprocessor directives, sehingga memiliki fleksibilitas tinggi untuk diunggah ke mikrokontroler ESP32 maupun Teensy 4.1 tanpa modifikasi manual pada struktur kodenya. 
+Dikembangkan menggunakan ekosistem PlatformIO, basis kode ini menerapkan prinsip modularitas melalui preprocessor directives, sehingga memiliki fleksibilitas untuk diunggah ke mikrokontroler ESP32 maupun Teensy 4.1 tanpa modifikasi manual pada struktur kodenya. 
 
 Perangkat lunak ini bertugas sebagai jembatan komunikasi yang mengolah paket data serial berkecepatan tinggi dari sistem utama menjadi sinyal PWM (Pulse Width Modulation) yang stabil untuk menggerakkan rangkaian thruster. Dengan optimasi pada manajemen hardware timer dan protokol parsing data yang efisien, firmware ini menjamin respon pergerakan robot yang tangkas serta keandalan sistem dalam mempertahankan stabilitas manuver di bawah air.`,
         githubLink: "https://github.com/noskac/MavisEvo-MCU"
