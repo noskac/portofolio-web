@@ -23,15 +23,17 @@
     </section>
 
     <script src="projects-data.js"></script>
-    <script src="projects-data.js"></script>
     <script>
         const grid = document.getElementById('projects-grid');
 
-        // Render SEMUA proyek
+        // Render SEMUA proyek dari projects-data.js
         projectsData.forEach(project => {
             const card = document.createElement('div');
             card.className = 'project-card';
             
+            // 1. Tambahkan logika Label Status (On-going)
+            const statusBadge = project.status ? `<span class="badge-status">${project.status}</span>` : '';
+
             const projectImages = project.images ? project.images : [project.image];
             let imagesHTML = '';
             projectImages.forEach((img, index) => {
@@ -41,7 +43,7 @@
             card.innerHTML = `
                 <div class="card-image-container" id="all-slider-${project.id}">
                     <span class="card-badge">${project.category}</span>
-                    ${imagesHTML}
+                    ${statusBadge} ${imagesHTML}
                 </div>
                 <div class="card-content">
                     <h3>${project.title}</h3>
@@ -51,6 +53,7 @@
             `;
             grid.appendChild(card);
 
+            // Logika Auto-Slide untuk setiap kartu
             if (projectImages.length > 1) {
                 let currentImgIndex = 0;
                 const sliderContainer = card.querySelector(`#all-slider-${project.id}`);

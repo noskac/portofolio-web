@@ -84,6 +84,7 @@ experienceData.forEach(item => {
     timeline.appendChild(timelineItem);
 });
 
+
 // --- Render Proyek di Halaman Utama (index.html) ---
 const featuredGrid = document.getElementById('featured-projects');
 
@@ -106,9 +107,13 @@ if (featuredGrid) {
             imagesHTML += `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="${project.title}">`;
         });
 
+        // Logika tambahan untuk label status
+        const statusBadge = project.status ? `<span class="badge-status">${project.status}</span>` : '';
+
         card.innerHTML = `
             <div class="card-image-container" id="slider-${project.id}">
                 <span class="card-badge">${project.category}</span>
+                ${statusBadge} 
                 ${imagesHTML}
             </div>
             <div class="card-content">

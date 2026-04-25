@@ -41,6 +41,26 @@ Dari sisi rekayasa perangkat lunak, proyek ini menonjolkan penerapan arsitektur 
         githubLink: "https://github.com/noskac/IoT-Soil-Moisture-Auto-Watering-Simulator"
     },
     {
+        id: "esp32-rc-robot",
+        title: "ESP32 Bluetooth RC Robot",
+        category: "Robotics",
+        status: "On-going", // Label tambahan untuk status proyek
+        images: [
+            "assets/Project_3_skema.png",
+            "assets/Project_3_Program2.png",
+            "assets/Project_3_Program1.png",
+            "assets/Project_3_DashboardApp.png"
+        ],
+        description: "Sistem kendali robot 4WD berbasis ESP32 via Bluetooth. Saat ini dalam tahap pengembangan logika sistem dan antarmuka Android (On-going)...",
+        techStack: ["ESP32", "C++", "Bluetooth Serial", "L298N Driver", "Android GUI"],
+        fullStory: `Proyek ini merupakan sistem kendali robot mobile roda empat (4WD) berbasis mikrokontroler ESP32 yang dioperasikan secara nirkabel melalui protokol Bluetooth Serial. Saat ini, proyek masih dalam tahap pengembangan aktif (On-going), dengan fokus utama pada perancangan arsitektur sistem dan simulasi logika pergerakan sebelum masuk ke tahap perakitan fisik.
+
+Sistem dirancang untuk menjembatani transmisi data real-time antara perangkat keras dengan aplikasi Android custom. Aplikasi pengontrol akan membaca input dari virtual joystick dan mengirimkan paket data berformat string (koordinat sumbu X dan Y) ke mikrokontroler dengan latensi rendah.
+
+Pada sisi perangkat lunak, ESP32 bertugas memparsing data menjadi sinyal PWM untuk driver motor L298N. Meskipun masih dalam tahap pengembangan, algoritma differential steering telah dirancang di dalam kode C++ untuk memastikan manuver yang halus seperti akselerasi bertahap dan navigasi dinamis. Proyek ini mendemonstrasikan integrasi awal antara desain sirkuit elektronika aktuator dan pengembangan aplikasi mobile.`,
+        githubLink: "https://github.com/noskac/ESP32-Bluetooth-RC-Robot"
+    },
+    {
         id: "yolo-road",
         title: "Sistem Deteksi Kerusakan Jalan",
         category: "Machine Learning",
